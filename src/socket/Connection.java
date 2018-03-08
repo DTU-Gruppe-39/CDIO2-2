@@ -6,8 +6,8 @@ public class Connection
 {
 	private BufferedReader br;
 	private DataOutputStream dos;
-	private int port = 0;
-	private String LocalHost = "";
+	private int port = 8000;
+	private String LocalHost = "127.0.0.1";
 	private Socket clientSocket = null;
 
 	/**
@@ -24,7 +24,7 @@ public class Connection
 	 */
 	public Socket SocketConn () throws UnknownHostException, IOException
 	{
-		this.clientSocket = new Socket(this.LocalHost, this.port);
+		clientSocket = new Socket(LocalHost, port);
 		return clientSocket;
 	}
 	

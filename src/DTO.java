@@ -2,8 +2,9 @@
 public class DTO {
 	
 	String operatorId;
-	int batchId;
-	double taraWeight, netWeight, bruttoWeight;	
+	String batchId;
+	String taraWeight, netWeight, bruttoWeight; 
+	//double netWeight, bruttoWeight, taraWeight;	
 	
 	
 
@@ -22,65 +23,88 @@ public class DTO {
 
 
 
-	public int getBatchId() {
+	public String getBatchId() {
 		return batchId;
 	}
 
 
 
 
-	public void setBatchId(int batchId) {
+	public void setBatchId(String batchId) {
 		this.batchId = batchId;
 	}
 
 
 
-
+	public String getTaraWeight()
+	{
+		return taraWeight;
+	}
+	
+	/*
 	public double getTaraWeight() {
 		return taraWeight;
 	}
+	 */
 
 
 
-
+	public void setTaraWeight(String taraWeight)
+	{
+		this.taraWeight = taraWeight;
+	}
+	/*
 	public void setTaraWeight(double taravWeight) {
 		this.taraWeight = taravWeight;
 	}
+	 */
 
 
-
-
+	public String getNetWeight()
+	{
+		return netWeight;
+	}
+	/*
 	public double getNetWeight() {
 		return netWeight;
 	}
+	*/
 
 
-
-
+	public void setNetWeight(String netWeight)
+	{
+		this.netWeight = netWeight;
+	}
+	/*
 	public void setNetWeight(double netWeight) {
 		this.netWeight = netWeight;
 	}
+	*/
 
-
-
-
+	public String getBruttoWeight()
+	{
+		return bruttoWeight;
+	}
+	/*
 	public double getBruttoWeight() {
 		return bruttoWeight;
 	}
+	*/
 
 
-
-
+	public void setBruttoWeight(String bruttoWeight)
+	{
+		this.bruttoWeight = bruttoWeight;
+	}
+	/*
 	public void setBruttoWeight(double bruttoWeight) {
 		this.bruttoWeight = bruttoWeight;
 	}
-
-
-
+	*/
 
 	public String toString(){
-		return "operatørId: " + operatorId+ " batchId: " + batchId
-				+ " taravægt: " + taraWeight + " nettovægt: "+ netWeight + " bruttovægt: " 
+		return "operatï¿½rId: " + operatorId+ " batchId: " + batchId
+				+ " taravï¿½gt: " + taraWeight + " nettovï¿½gt: "+ netWeight + " bruttovï¿½gt: " 
 				+ bruttoWeight;
 	}
 
