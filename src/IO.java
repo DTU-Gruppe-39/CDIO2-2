@@ -56,7 +56,7 @@ public class IO {
 	responseFromServer = getFromServer.readLine();		//Save
 	responseFromServer = getFromServer.readLine();		//Save
 	//dto.setTaraWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
-	dto.setTaraWeight(responseFromServer);
+	dto.setTaraWeight(Double.parseDouble(responseFromServer));
 	System.out.println(responseFromServer);
 	
 	sendToServer.writeBytes("T" + '\n');
@@ -71,7 +71,7 @@ public class IO {
 	responseFromServer = getFromServer.readLine();		//Save
 	responseFromServer = getFromServer.readLine();		//Save
 	//dto.setNetWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
-	dto.setNetWeight(responseFromServer);
+	dto.setNetWeight(Double.parseDouble(responseFromServer));
 	System.out.println(responseFromServer);
 	
 	sendToServer.writeBytes("T" + '\n');
@@ -86,7 +86,7 @@ public class IO {
 	responseFromServer = getFromServer.readLine();		//Save
 	responseFromServer = getFromServer.readLine();		//Save
 	//dto.setBruttoWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
-	dto.setBruttoWeight(responseFromServer);
+	dto.setBruttoWeight(Double.parseDouble(responseFromServer));
 	System.out.println(responseFromServer);
 	
 	sendToServer.writeBytes("RM20 8 ”" + status + "” “” “&3”" + '\n');
