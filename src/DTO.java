@@ -1,39 +1,87 @@
 
 public class DTO {
 	
-	String operatoerId;
+	String operatorId;
 	int batchId;
-	double taravaegt, nettovaegt, bruttovaegt;	
+	double taraWeight, netWeight, bruttoWeight;	
 	
-	public String getOperatoerId() {
-		return operatoerId;
+	
+
+	
+	public String getOperatorId() {
+		return operatorId;
 	}
-	public void setOperatoerId(String operatoerId) {
-		this.operatoerId = operatoerId;
+
+
+
+
+	public void setOperatorId(String operatorId) {
+		this.operatorId = operatorId;
 	}
+
+
+
+
 	public int getBatchId() {
 		return batchId;
 	}
+
+
+
+
 	public void setBatchId(int batchId) {
 		this.batchId = batchId;
 	}
-	public double getTaravaegt() {
-		return taravaegt;
+
+
+
+
+	public double getTaraWeight() {
+		return taraWeight;
 	}
-	public void setTaravaegt(double taravaegt) {
-		this.taravaegt = taravaegt;
+
+
+
+
+	public void setTaraWeight(double taravWeight) {
+		this.taraWeight = taravWeight;
 	}
-	public double getNettovaegt() {
-		return nettovaegt;
+
+
+
+
+	public double getNetWeight() {
+		return netWeight;
 	}
-	public void setNettovaegt(double nettovaegt) {
-		this.nettovaegt = nettovaegt;
+
+
+
+
+	public void setNetWeight(double netWeight) {
+		this.netWeight = netWeight;
 	}
-	public double getBruttovaegt() {
-		return bruttovaegt;
+
+
+
+
+	public double getBruttoWeight() {
+		return bruttoWeight;
 	}
-	public void setBruttovaegt(double bruttovaegt) {
-		this.bruttovaegt = bruttovaegt;
+
+
+
+
+	public void setBruttoWeight(double bruttoWeight) {
+		this.bruttoWeight = bruttoWeight;
+	}
+
+
+
+
+	public String toString(){
+		return "operatørId: " + operatorId+ " batchId: " + batchId
+				+ " taravægt: " + taraWeight + " nettovægt: "+ netWeight + " bruttovægt: " 
+				+ bruttoWeight;
 	}
 
 	
