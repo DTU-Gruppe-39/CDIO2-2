@@ -28,93 +28,107 @@ public class IO {
 	 */
 	public void run() throws IOException 
 	{
-	sendToServer.writeBytes("RM20 4 ”Indtast operator nr” ”” ”&3”" + '\n');
-	responseFromServer = getFromServer.readLine();		
-	System.out.println(responseFromServer);
-	responseFromServer = getFromServer.readLine();		
-	dto.setOperatorId(responseFromServer); //saves in DTO
-	System.out.println(responseFromServer);
-
-	sendToServer.writeBytes("RM20 8 ”t Navn: " + name + "” ”” ”&3”" + '\n');
-	responseFromServer = getFromServer.readLine();		
-	System.out.println(responseFromServer);
-	responseFromServer = getFromServer.readLine();		
-	System.out.println(responseFromServer);
+	try {
+		sendToServer.writeBytes("RM20 4 ”Indtast operator nr” ”” ”&3”" + '\n');
+		responseFromServer = getFromServer.readLine();		
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();		
+		dto.setOperatorId(responseFromServer); //saves in DTO
+		System.out.println(responseFromServer);
 	
-	sendToServer.writeBytes("RM20 4 ”Indtast batch nr” ”” ”&3”" + '\n');
-	responseFromServer = getFromServer.readLine();		
-	System.out.println(responseFromServer);
-	responseFromServer = getFromServer.readLine();		//Save
-	dto.setBatchId(responseFromServer); //converts to the corresponding values if it contains chars.
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("RM20 8 ”Vaegten skal ubelastes” ”” ”&3”" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("T" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("RM20 8 ”Placer venligst tara” ”” ”&3”" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("S" + '\n');
-	responseFromServer = getFromServer.readLine();		//Save
-//	dto.setTaraWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
-	responseFromServer = strip(responseFromServer);
-	dto.setTaraWeight(Double.parseDouble(responseFromServer));
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("T" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("RM20 8 ”Placer venligst netto” ”” ”&3”" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("S" + '\n');
-	responseFromServer = getFromServer.readLine();		//Save
-//	dto.setNetWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
-	responseFromServer = strip(responseFromServer);
-	dto.setNetWeight(Double.parseDouble(responseFromServer));
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("T" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("RM20 8 ”Fjern venligst brutto” ”” ”&3”" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("S" + '\n');
-//	dto.setBruttoWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
-	responseFromServer = getFromServer.readLine();//Save
-	responseFromServer = strip(responseFromServer);
-	dto.setBruttoWeight(Double.parseDouble(responseFromServer));
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("RM20 8 ”Afvejnings status: " + status + "” “” “&3”" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	
-	sendToServer.writeBytes("T" + '\n');
-	responseFromServer = getFromServer.readLine();
-	System.out.println(responseFromServer);
-	dto.toString();
+		sendToServer.writeBytes("RM20 8 ”t Navn: " + name + "” ”” ”&3”" + '\n');
+		responseFromServer = getFromServer.readLine();		
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();		
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("RM20 4 ”Indtast batch nr” ”” ”&3”" + '\n');
+		responseFromServer = getFromServer.readLine();		
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();		//Save
+		dto.setBatchId(responseFromServer); //converts to the corresponding values if it contains chars.
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("RM20 8 ”Vaegten skal ubelastes” ”” ”&3”" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("T" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("RM20 8 ”Placer venligst tara” ”” ”&3”" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("S" + '\n');
+		responseFromServer = getFromServer.readLine();		//Save
+	//	dto.setTaraWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
+		responseFromServer = strip(responseFromServer);
+		dto.setTaraWeight(Double.parseDouble(responseFromServer));
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("T" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("RM20 8 ”Placer venligst netto” ”” ”&3”" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("S" + '\n');
+		responseFromServer = getFromServer.readLine();		//Save
+	//	dto.setNetWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
+		responseFromServer = strip(responseFromServer);
+		dto.setNetWeight(Double.parseDouble(responseFromServer));
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("T" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("RM20 8 ”Fjern venligst brutto” ”” ”&3”" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("S" + '\n');
+	//	dto.setBruttoWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
+		responseFromServer = getFromServer.readLine();//Save
+		responseFromServer = strip(responseFromServer);
+		dto.setBruttoWeight(Double.parseDouble(responseFromServer));
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("RM20 8 ”Afvejnings status: OK” “” “&3”" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		
+		sendToServer.writeBytes("T" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		dto.toString();
+	} catch(Exception e) {
+		e.printStackTrace();
+		System.out.println(e.getMessage());
+		sendToServer.writeBytes("RM20 8 ”Afvejnings status: Kasseret” “” “&3”" + '\n');
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+		responseFromServer = getFromServer.readLine();
+		System.out.println(responseFromServer);
+	} finally {
+		clientSocket.close();
+		sendToServer.close();
+		getFromServer.close();
+	}
 	}
 	
 	
