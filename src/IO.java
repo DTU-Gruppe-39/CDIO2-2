@@ -66,6 +66,7 @@ public class IO {
 	
 	sendToServer.writeBytes("S" + '\n');
 	responseFromServer = getFromServer.readLine();		//Save
+	responseFromServer = strip(responseFromServer);
 	//dto.setTaraWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
 	dto.setTaraWeight(Double.parseDouble(responseFromServer));					//NEEDS TO STRIP RETURN		RETURNS fx. 1.000 kg but saves as double (ASCII 46-57)
 	System.out.println(responseFromServer);
@@ -82,6 +83,7 @@ public class IO {
 	
 	sendToServer.writeBytes("S" + '\n');
 	responseFromServer = getFromServer.readLine();		//Save
+	responseFromServer = strip(responseFromServer);
 	//dto.setNetWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
 	dto.setNetWeight(Double.parseDouble(responseFromServer));					//NEEDS TO STRIP RETURN		RETURNS fx. 1.000 kg but saves as double
 	System.out.println(responseFromServer);
@@ -97,7 +99,8 @@ public class IO {
 	System.out.println(responseFromServer);
 	
 	sendToServer.writeBytes("S" + '\n');
-	responseFromServer = getFromServer.readLine();		//Save
+	responseFromServer = getFromServer.readLine();//Save
+	responseFromServer = strip(responseFromServer);
 	//dto.setBruttoWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
 	dto.setBruttoWeight(Double.parseDouble(responseFromServer));					//NEEDS TO STRIP RETURN		RETURNS fx. 1.000 kg but saves as double
 	System.out.println(responseFromServer);
@@ -112,5 +115,21 @@ public class IO {
 	responseFromServer = getFromServer.readLine();
 	System.out.println(responseFromServer);
 	dto.toString();
+	}
+	
+	
+	/*
+	 * method made for taking in a string
+	 * and extracting doubles as a string
+	 * ready for Double.parseDouble()
+	 * */
+	
+	public String strip(String value) {
+		String stripped = "";
+		for(int i = 0; i< value.length(); i++) {
+			if((value.charAt(i) >= '0' && value.charAt(i) <= '9') || value.charAt(i) == '.' )
+				stripped += value.charAt(i);
+		}
+		return stripped;
 	}
 }
