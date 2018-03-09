@@ -28,7 +28,7 @@ public class IO {
 	 */
 	public void run() throws IOException 
 	{
-	sendToServer.writeBytes("RM20 8 ”Indtast operator nr” ”” ”&3”" + '\n');
+	sendToServer.writeBytes("RM20 4 ”Indtast operator nr” ”” ”&3”" + '\n');
 	responseFromServer = getFromServer.readLine();		
 	System.out.println(responseFromServer);
 	responseFromServer = getFromServer.readLine();		
@@ -41,8 +41,8 @@ public class IO {
 	responseFromServer = getFromServer.readLine();		
 	System.out.println(responseFromServer);
 	
-	sendToServer.writeBytes("RM20 8 ”Indtast batch nr” ”” ”&3”" + '\n');
-	responseFromServer = getFromServer.readLine();		//Save
+	sendToServer.writeBytes("RM20 4 ”Indtast batch nr” ”” ”&3”" + '\n');
+	responseFromServer = getFromServer.readLine();		
 	System.out.println(responseFromServer);
 	responseFromServer = getFromServer.readLine();		//Save
 	dto.setBatchId(responseFromServer); //converts to the corresponding values if it contains chars.
@@ -66,8 +66,7 @@ public class IO {
 	
 	sendToServer.writeBytes("S" + '\n');
 	responseFromServer = getFromServer.readLine();		//Save
-	//dto.setTaraWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
-	dto.setTaraWeight(Double.parseDouble(responseFromServer));					//NEEDS TO STRIP RETURN		RETURNS fx. 1.000 kg but saves as double (ASCII 46-57)
+	dto.setTaraWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
 	System.out.println(responseFromServer);
 	
 	sendToServer.writeBytes("T" + '\n');
@@ -82,8 +81,7 @@ public class IO {
 	
 	sendToServer.writeBytes("S" + '\n');
 	responseFromServer = getFromServer.readLine();		//Save
-	//dto.setNetWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
-	dto.setNetWeight(Double.parseDouble(responseFromServer));					//NEEDS TO STRIP RETURN		RETURNS fx. 1.000 kg but saves as double
+	dto.setNetWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
 	System.out.println(responseFromServer);
 	
 	sendToServer.writeBytes("T" + '\n');
@@ -98,8 +96,7 @@ public class IO {
 	
 	sendToServer.writeBytes("S" + '\n');
 	responseFromServer = getFromServer.readLine();		//Save
-	//dto.setBruttoWeight(Integer.parseInt(responseFromServer)); //converts to the corresponding values if it contains chars.
-	dto.setBruttoWeight(Double.parseDouble(responseFromServer));					//NEEDS TO STRIP RETURN		RETURNS fx. 1.000 kg but saves as double
+	dto.setBruttoWeight(Double.parseDouble(responseFromServer.replace("kg", "").replace("S", "")));
 	System.out.println(responseFromServer);
 	
 	sendToServer.writeBytes("RM20 8 ”Afvejnings status: " + status + "” “” “&3”" + '\n');
