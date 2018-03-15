@@ -1,5 +1,8 @@
+package func;
 import java.io.IOException;
 import java.net.UnknownHostException;
+
+import data.DTO;
 
 public class Main {
 

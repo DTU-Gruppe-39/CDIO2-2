@@ -1,4 +1,4 @@
-package socket;
+package data.socket;
 import java.io.*;
 import java.net.*;
 
