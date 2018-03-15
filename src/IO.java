@@ -116,6 +116,9 @@ public class IO {
 		responseFromServer = getFromServer.readLine();
 		System.out.println(responseFromServer);
 		dto.toString();
+		
+		sendToServer.writeBytes("Q" + '\n');
+		
 	} catch(Exception e) {
 		e.printStackTrace();
 		System.out.println(e.getMessage());
